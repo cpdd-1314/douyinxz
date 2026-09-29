@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>抖音下载器 · 视频 / 图集 / MP3</title>
+  <meta name="description" content="抖音视频、图集照片、音频下载工具（自托管）" />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <div class="bg-grid"></div>
+
+  <!-- 首次访问：声明确认弹窗 -->
+  <div id="consentMask" class="consent-mask" hidden>
+    <div class="consent-card">
+      <div class="consent-icon">⚠️</div>
+      <h2>使用前请阅读并同意</h2>
+      <div class="consent-body">
+        <p>本工具仅供<strong>个人学习与研究</strong>使用，请勿用于商业用途或大规模抓取。</p>
+        <ul>
+          <li>请尊重创作者版权，不要传播他人作品</li>
+          <li>不绕过登录、付费等访问限制</li>
+          <li>抖音对服务器 IP 有风控，解析失败时需自行配置 cookies</li>
+        </ul>
+      </div>
+      <label class="consent-check">
+        <input type="checkbox" id="consentCheck" />
+        <span>我已阅读并同意上述声明，自愿承担使用风险</span>
+      </label>
+      <button id="consentBtn" class="btn btn-primary" disabled>同意并进入</button>
+    </div>
+  </div>
+
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="logo">
+        <span class="logo-mark">DY</span>
+        <span class="logo-text">抖音下载器</span>
+      </div>
+      <h1>无水印下载 <span class="grad">视频 · 图集 · MP3</span></h1>
+      <p class="sub">粘贴抖音分享链接，支持批量。个人自用工具，请勿用于商业或侵权用途。</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- 输入区 -->
+    <section class="panel input-panel">
+      <label for="input" class="panel-label">粘贴链接 / 分享文案</label>
+      <textarea
+        id="input"
+        placeholder="支持多条，每行一条，例如：&#10;https://v.douyin.com/xxxxxxx/&#10;7.32 复制打开抖音，看看xxx的作品 https://v.douyin.com/yyyyyy/"
+        spellcheck="false"
+      ></textarea>
+      <div class="actions">
+        <button id="parseBtn" class="btn btn-primary">
+          <span class="btn-label">开始解析</span>
+          <span class="spinner" hidden></span>
+        </button>
+        <button id="clearBtn" class="btn btn-ghost">清空</button>
+        <span id="status" class="status"></span>
+      </div>
+      <div id="envHint" class="env-hint" hidden></div>
+    </section>
+
+    <!-- 结果区 -->
+    <section id="results" class="results"></section>
+
+    <div id="empty" class="empty">
+      <div class="empty-icon">↓</div>
+      <p>解析结果会显示在这里</p>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>仅限个人学习使用 · 请尊重创作者版权 · 不绕过登录与付费内容</p>
+  </footer>
+
+  <script src="/js/app.js"></script>
+</body>
+</html>
